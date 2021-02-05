@@ -41,7 +41,7 @@ class HospitalPatient(models.Model):
     #patient_age2 = fields.Float(string="Age2")
     notes = fields.Text(string="Registration Note")
     image = fields.Binary(string="Image", attachment=True)
-    #appointment_count = fields.Integer(string='Appointment', compute='get_appointment_count')
+    appointment_count = fields.Integer(string='Appointment', compute='get_appointment_count')
     #active = fields.Boolean("Active", default=True)
     #doctor_id = fields.Many2one('hospital.doctor', string="Doctor")
     #email_id = fields.Char(string="Email")
@@ -67,6 +67,23 @@ class HospitalPatient(models.Model):
     def _compute_upper_name(self):
         for rec in self:
             rec.patient_name_upper = rec.patient_name.upper() if rec.patient_name else False
+
+    # Action For Smart Button
+    # https://www.youtube.com/watch?v=I93Lr-bprIc&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=19
+    def open_patient_appointments(self):
+        return {
+            'name': _('Appointments'),
+            'domain': [('patient_id', '=', self.id)],
+           # 'view_type': 'form',
+            'res_model': 'hospital.appointment',
+            'view_id': False,
+            'view_mode': 'tree,form',
+            'type': 'ir.actions.act_window',
+        }
+
+    def get_appointment_count(self):
+        count = self.env['hospital.appointment'].search_count([('patient_id', '=', self.id)])
+        self.appointment_count = count
 
     @api.depends('patient_age')
     def set_age_group(self):

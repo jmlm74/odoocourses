@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-     <!--inherit and add fields to sale order-->
+    <!-- response for smart button (details sent by patient.open_patient_appointments) -->
+    <record id="open_patient_appointments" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="domain">[('patient_id','=',active_id)]</field>
+    </record>
+
+    <!--inherit and add fields to sale order-->
     <!-- Modifiy directly sale order form without modifying sale app -->
     <record id="sale_order_inherit" model="ir.ui.view">
         <field name="name">sale.order.inherit</field>
@@ -38,6 +44,16 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_patient_appointments" class="oe_stat_button" type="object" icon="fa-calendar">
+                            <field string="Appointments" name="appointment_count" widget="statinfo"/>
+                        </button>
+                        <!--
+                        <button name="%(open_patient_appointments)d" class="oe_stat_button" type="action" icon="fa-usd">
+                            <field string="Appointments" name="appointment_count" widget="statinfo"/>
+                        </button>
+                        -->
+                    </div>
                     <div class="oe_title">
                         <h1>
                             <field name="name_seq"/>
@@ -86,6 +102,7 @@
             </search>
         </field>
     </record>
+
 
     <record id="patient_action" model="ir.actions.act_window">
         <field name="name">Patient</field>

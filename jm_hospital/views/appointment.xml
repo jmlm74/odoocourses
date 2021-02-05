@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <!--How To Define Tree and Form View In Odoo-->
     <!-- https://www.youtube.com/watch?v=3JMEroi4DIk&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=4 -->
     <!--tree view of the appointment model-->
