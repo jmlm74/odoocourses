@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+api_key.txt
+.vscode
+.idea
+staticfiles
+media
+workspace.code-workspace
+static/CACHE/
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Cython debug symbols
+cython_debug/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+.coverage
+.coverage.*
+CACHE/
+
