@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'data/secquence.xml',
         'views/patient.xml',
+        'views/appointment.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,

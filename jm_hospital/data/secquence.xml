@@ -13,7 +13,7 @@
             <field name="company_id" eval="False"/>
         </record>
 
-        <!-- Sequences for hospital.appointment
+        <!-- Sequences for hospital.appointment -->
         <record id="seq_hospital_appointment" model="ir.sequence">
             <field name="name">Appointment Sequence</field>
             <field name="code">hospital.appointment</field>
@@ -21,6 +21,5 @@
             <field name="padding">3</field>
             <field name="company_id" eval="False"/>
         </record>
-        -->
     </data>
 </odoo>
