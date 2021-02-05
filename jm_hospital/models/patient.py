@@ -26,10 +26,10 @@ class HospitalPatient(models.Model):
     #name = fields.Char(string="Contact Number")
     name_seq = fields.Char(string='Patient ID', required=True, copy=False, readonly=True,
                            index=True, default=lambda self: _('New'))
-    #gender = fields.Selection([
-    #    ('male', 'Male'),
-    #    ('fe_male', 'Female'),
-    #    ], default='male', string="Gender")
+    gender = fields.Selection([
+                               ('male', 'Male'),
+                               ('fe_male', 'Female'),
+                              ], default='male', string="Gender")
     #age_group = fields.Selection([
     #    ('major', 'Major'),
     #    ('minor', 'Minor'),
