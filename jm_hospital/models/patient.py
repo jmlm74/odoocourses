@@ -35,6 +35,7 @@ class HospitalPatient(models.Model):
                                   ('minor', 'Minor'),
                                  ], string="Age Group", compute='set_age_group', store=True)
     patient_name = fields.Char(string='Name', required=True, track_visibility="always")
+    # add  track visibility (already done in my copy/paste !
     patient_age = fields.Integer('Age', track_visibility="always", group_operator=False)
     #patient_age2 = fields.Float(string="Age2")
     notes = fields.Text(string="Registration Note")
