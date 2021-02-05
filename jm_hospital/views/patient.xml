@@ -24,6 +24,7 @@
                 <field name="name_seq" string="Seq"/>
                 <field name="patient_name" string="Name"/>
                 <field name="patient_age" string="Age"/>
+                <field name="age_group" string="Age group"/>
                 <field name="gender" string="Gender"/>
                 <field name="notes"  string="Desc"/>
                 <field name="image" string="Image" widget="image"  class="oe_avatar" />

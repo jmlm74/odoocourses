@@ -30,10 +30,10 @@ class HospitalPatient(models.Model):
                                ('male', 'Male'),
                                ('fe_male', 'Female'),
                               ], default='male', string="Gender")
-    #age_group = fields.Selection([
-    #    ('major', 'Major'),
-    #    ('minor', 'Minor'),
-    #    ], string="Age Group", compute='set_age_group', store=True)
+    age_group = fields.Selection([
+                                  ('major', 'Major'),
+                                  ('minor', 'Minor'),
+                                 ], string="Age Group", compute='set_age_group', store=True)
     patient_name = fields.Char(string='Name', required=True, track_visibility="always")
     patient_age = fields.Integer('Age', track_visibility="always", group_operator=False)
     #patient_age2 = fields.Float(string="Age2")
@@ -48,7 +48,7 @@ class HospitalPatient(models.Model):
     #    ('male', 'Male'),
     #    ('fe_male', 'Female'),
     #    ], string="Doctor Gender")
-    #patient_name_upper = fields.Char(compute='_compute_upper_name', inverse='_inverse_upper_name')
+    patient_name_upper = fields.Char(compute='_compute_upper_name', inverse='_inverse_upper_name')
 
     # Overriding the create method to assign sequence for the record
     # https://www.youtube.com/watch?v=ZfKzmfiqeg0&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=8
@@ -59,3 +59,18 @@ class HospitalPatient(models.Model):
         result = super(HospitalPatient, self).create(vals)
         return result
 
+    # compute function in Odoo
+    # https://www.youtube.com/watch?v=Mg80GxrKDOc&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=11
+    @api.depends('patient_name')
+    def _compute_upper_name(self):
+        for rec in self:
+            rec.patient_name_upper = rec.patient_name.upper() if rec.patient_name else False
+
+    @api.depends('patient_age')
+    def set_age_group(self):
+        for rec in self:
+            if rec.patient_age:
+                if rec.patient_age < 18:
+                    rec.age_group = 'minor'
+                else:
+                    rec.age_group = 'major'
