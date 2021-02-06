@@ -48,7 +48,38 @@
                     <group>
                         <field name="notes"/>
                     </group>
-
+                    <notebook>
+                        <page string="Doctor Prescription">
+                            <group>
+                                <field name="doctor_note"/>
+                            </group>
+                            <!--
+                           <field name="appointment_lines">
+                               <tree editable="bottom">
+                                   <field name="sequence" widget="handle"/>
+                                   <field name="product_id"/>
+                                   <field name="product_qty"/>
+                                   <field name="appointment_id" invisible="1"/>
+                               </tree>
+                               <form>
+                                   <group>
+                                       <group>
+                                           <field name="product_id"/>
+                                       </group>
+                                       <group>
+                                           <field name="product_qty"/>
+                                       </group>
+                                   </group>
+                               </form>
+                           </field>
+                           -->
+                        </page>
+                        <page string="Pharmacy">
+                            <group>
+                                <field name="pharmacy_note"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>

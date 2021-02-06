@@ -30,6 +30,8 @@ class HospitalAppointment(models.Model):
                               ('done', 'Done'),
                               ('cancel', 'Cancelled'),
                              ], string='Status', readonly=True, default='draft')
+    doctor_note = fields.Text(string="Note", track_visibility='onchange')
+    pharmacy_note = fields.Text(string="Note", track_visibility='always')
 
     # Moving the State Of the Record To Confirm State in Button Click
     # How to Add States/Statusbar for Records in Odoo
