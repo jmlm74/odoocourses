@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+    <!-- menu="false"  To rmove from the menu button print -->
     <report
         id="report_patient_card"
         string="Patient Card"

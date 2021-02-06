@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--How To Create Data Files and Load Default Data In Odoo-->
+    <!--  https://www.youtube.com/watch?v=ZyABTIDll0U&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=30  -->
+    <data noupdate="1">
+        <record id="patient_xyz" model="hospital.patient">
+            <field name="patient_name">JMLM</field>
+             <field name="notes">Mes notes</field>
+            <field name="patient_age">53</field>
+            <field name="gender">fe_male</field>
+        </record>
+
+        <!--creating appointment from the code-->
+        <record id="appointment_xyz" model="hospital.appointment">
+            <field name="patient_id" ref="patient_xyz"/>
+            <field name="notes">Subscribe the channel</field>
+        </record>
+    </data>
+<!--
+    <delete id="mrp.mrp_workcenter_rule" model="ir.rule"/>
+
+    <delete id="calendar.calendar_template_meeting_invitation" model="mail.template"/>
+-->
+
+</odoo>

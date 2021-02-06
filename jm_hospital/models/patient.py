@@ -2,6 +2,20 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
+# inheriting standard classes --> change the methods without changing source code
+#                             --> Add field in view without changing source
+class ResPartners(models.Model):
+    _inherit = 'res.partner'
+
+    # How to OverRide Create Method Of a Model
+    # https://www.youtube.com/watch?v=AS08H3G9x1U&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=26
+    @api.model
+    def create(self, vals_list):
+        res = super(ResPartners, self).create(vals_list)
+        print("yes working")
+        # do the custom coding here
+        return res
+
 # Inheriting the Sale Order Model and Adding New Field
 # https://www.youtube.com/watch?v=z1Tx7EGkPy0&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=9
 class SaleOrderInherit(models.Model):
