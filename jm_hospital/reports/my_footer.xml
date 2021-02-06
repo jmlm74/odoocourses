@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- BUG BUG BUG -->
+        <temlate id="my_template_footer" inherit_id="report.external_layout_footer">
+            <xpath expr="//div[@class='footer']" position="replace">
+                <div class="row zero_min_height">
+                    <div style="border-bottom: 1px solid black;" ></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h5>My Footer</h5>
+                    </div>
+                </div>
+            </xpath>
+        </temlate>
+
+</odoo>

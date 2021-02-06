@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- BUG BUG BUG -->
+        <template id="my_template_header" inherit_id="web.external_layout">
+            <xpath expr="//div[@class='header']" position="replace">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h5>My Header</h5>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div style="border-bottom: 1px solid black;" ></div>
+                </div>
+            </xpath>
+        </template>
+
+</odoo>
