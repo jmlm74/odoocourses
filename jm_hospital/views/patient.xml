@@ -48,11 +48,14 @@
                         <button name="open_patient_appointments" class="oe_stat_button" type="object" icon="fa-calendar">
                             <field string="Appointments" name="appointment_count" widget="statinfo"/>
                         </button>
-
                         <button name="%(open_patient_appointments)d" class="oe_stat_button" type="action" icon="fa-usd">
                             <field string="Appointments" name="appointment_count" widget="statinfo"/>
                         </button>
 
+                        <button name="toggle_active" class="oe_stat_button" type="object" icon="fa-archive">
+                            <field string="Archived" name="active" widget="boolean_button"/>
+                            Archived
+                        </button>
                     </div>
                     <div class="oe_title">
                         <h1>

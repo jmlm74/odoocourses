@@ -56,7 +56,7 @@ class HospitalPatient(models.Model):
     notes = fields.Text(string="Registration Note")
     image = fields.Binary(string="Image", attachment=True)
     appointment_count = fields.Integer(string='Appointment', compute='get_appointment_count')
-    #active = fields.Boolean("Active", default=True)
+    active = fields.Boolean("Active", default=True)
     #doctor_id = fields.Many2one('hospital.doctor', string="Doctor")
     #email_id = fields.Char(string="Email")
     #user_id = fields.Many2one('res.users', string="PRO")
