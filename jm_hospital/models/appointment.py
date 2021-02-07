@@ -32,6 +32,9 @@ class HospitalAppointment(models.Model):
                              ], string='Status', readonly=True, default='draft')
     doctor_note = fields.Text(string="Note", track_visibility='onchange')
     pharmacy_note = fields.Text(string="Note", track_visibility='always')
+    # How to Create One2Many Field
+    # https://www.youtube.com/watch?v=_O_tNBdg3HQ&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=34
+    appointment_lines = fields.One2many('hospital.appointment.lines', 'appointment_id', string='Appointment Lines')
 
     # Moving the State Of the Record To Confirm State in Button Click
     # How to Add States/Statusbar for Records in Odoo
@@ -54,3 +57,12 @@ class HospitalAppointment(models.Model):
     def action_notify(self):
         for rec in self:
             rec.doctor_id.user_id.notify_warning(message='Appointment is Confirmed')
+
+
+class HospitalAppointmentLines(models.Model):
+    _name = 'hospital.appointment.lines'
+    _description = 'Appointment Lines'
+
+    product_id = fields.Many2one('product.product', string='Medicine')
+    product_qty = fields.Integer(string="Quantity")
+    appointment_id = fields.Many2one('hospital.appointment', string='Appointment ID')
