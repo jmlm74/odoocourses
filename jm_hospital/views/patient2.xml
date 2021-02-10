@@ -2,13 +2,10 @@
 <odoo>
 
     <!-- response for smart button (details sent by patient.open_patient_appointments) -->
-    <record id="open_patient_appointments" model="ir.actions.act_window">
+    <!-- <record id="open_patient_appointments" model="ir.actions.act_window">
         <field name="name">Appointments</field>
-        <field name="res_model">hospital.appointment</field>
-        <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="jm_hospital.appointment_tree" />
-        <field name="domain">[('patient_id','=',active_id)]</field>
-    </record>
+       <field name="domain">[('patient_id','=',active_id)]</field>
+    </record> -->
 
     <!--inherit and add fields to sale order-->
     <!-- Modifiy directly sale order form without modifying sale app -->
@@ -35,8 +32,8 @@
                 <field name="patient_age" string="Age"/>
                 <field name="age_group" string="Age group"/>
                 <field name="gender" string="Gender"/>
-                <field name="notes" string="Desc"/>
-                <field name="image" string="Image" widget="image" class="oe_avatar"/>
+                <field name="notes"  string="Desc"/>
+                <field name="image" string="Image" widget="image"  class="oe_avatar" />
             </tree>
         </field>
     </record>
@@ -48,13 +45,14 @@
             <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="open_patient_appointments" class="oe_stat_button" type="object"
-                                icon="fa-calendar">
+                        <!--
+                        <button name="open_patient_appointments" class="oe_stat_button" type="object" icon="fa-calendar">
                             <field string="Appointments" name="appointment_count" widget="statinfo"/>
                         </button>
                         <button name="%(open_patient_appointments)d" class="oe_stat_button" type="action" icon="fa-usd">
                             <field string="Appointments" name="appointment_count" widget="statinfo"/>
                         </button>
+                        -->
                         <button name="toggle_active" class="oe_stat_button" type="object" icon="fa-archive">
                             <field string="Archived" name="active" widget="boolean_button"/>
                             Archived
@@ -67,16 +65,16 @@
                     </div>
                     <group>
                         <group>
-                            <field name="patient_name"/>
+                            <field name="patient_name" />
                         </group>
                         <group>
-                            <field name="patient_age" string="Age"/>
-                            <field name="gender" string="Gender"/>
-                            <field name="doctor_id" string="Doctor"/>
+                            <field name="patient_age"  string="Age"/>
+                            <field name="gender"  string="Gender"/>
+                            <field name="doctor_id"  string="Doctor"/>
                         </group>
-                        <hr/>
-                        <field name="notes" string="Desc"/>
-                        <field name="image" string="Image" widget="image" class="oe_avatar"/>
+                        <hr />
+                        <field name="notes"  string="Desc"/>
+                        <field name="image" string="Image" widget="image"  class="oe_avatar" />
                     </group>
                 </sheet>
                 <!-- le chatter -->
@@ -89,17 +87,16 @@
         </field>
     </record>
 
-    <!--search view for the patient-->
+     <!--search view for the patient-->
     <record id="hospital_patient_search" model="ir.ui.view">
         <field name="name">hospital.patient.search</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <search string="Search Patients">
-                <field name="patient_name"
-                       filter_domain="['|',('patient_name', 'ilike', self),('name_seq', 'ilike', self)]"/>
+                <field name="patient_name" filter_domain="['|',('patient_name', 'ilike', self),('name_seq', 'ilike', self)]"/>
                 <field name="name_seq"/>
                 <field name="patient_name"/>
-                <separator/>
+                <separator />
                 <!-- in filter below search NOT in search -->
                 <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
                 <filter string="Female" name="female" domain="[('gender', '=', 'fe_male')]"/>

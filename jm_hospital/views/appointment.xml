@@ -124,4 +124,5 @@
     <menuitem id="hospital_appointment" name="Appointments" parent="hospital_root"
               action="action_appointment" sequence="30"/>
 
+
 </odoo>

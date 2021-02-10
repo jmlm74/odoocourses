@@ -16,8 +16,9 @@
         'security/security.xml',
         'data/secquence.xml',
         'data/data.xml',
-        'views/appointment.xml',
+
         'views/patient.xml',
+        'views/appointment.xml',
         'views/doctor.xml',
         'reports/report.xml',
         'reports/patient_card.xml',
