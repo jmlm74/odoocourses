@@ -72,7 +72,7 @@
                         <group>
                             <field name="patient_age" string="Age"/>
                             <field name="gender" string="Gender"/>
-                            <field name="doctor_id" string="Doctor"/>
+                            <field name="doctor_id" string="Doctor" options="{'no_create': True}"/>
                         </group>
                         <hr/>
                         <field name="notes" string="Desc"/>
@@ -128,7 +128,7 @@
     <menuitem id="hospital_root"
               name="Hospital"
               sequence="1"
-              web_icon="om_hospital,static/description/icon.png"/>
+              web_icon="jm_hospital,static/description/icon.png"/>
 
     <menuitem id="hospital_patient_root"
               name="Patients"
