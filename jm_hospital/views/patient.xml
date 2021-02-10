@@ -146,4 +146,7 @@
               sequence="10"
               action="patient_action"/>
 
+    <menuitem id="create_appointment" name="Create Appointment" parent="hospital_root"
+              action="create_appointment_wizard" sequence="40"/>
+
 </odoo>
