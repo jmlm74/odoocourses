@@ -16,5 +16,8 @@ class CreateAppointment(models.TransientModel):
             'appointment_date': self.appointment_date,
             'notes': 'Created From The Wizard/Code'
         }
+        # adding a message to the chatter from code
+        # https://www.youtube.com/watch?v=J3MvgwHnR0A&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=48
+        self.patient_id.message_post(body="Appointment created successfully ", subject="Appointment Creation")
         # creating appointments from the code
         self.env['hospital.appointment'].create(vals)
