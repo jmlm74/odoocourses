@@ -50,7 +50,8 @@
                     <!-- action cf XML + default_field_id-->
                     <button name="%(create_appointment_wizard)d" string="Create Appointment" type="action"
                             class="oe_highlight" context="{'default_patient_id': active_id}" />
-                     <button name="action_send_card" type="object"  string="Send By Email" class="oe_highlight" />
+                     <button name="action_send_card" type="object"  string="Send By Email" class="oe_highlight"
+                             groups="jm_hospital.group_hospital_manager"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
@@ -80,7 +81,9 @@
                             <field name="gender" string="Gender"/>
                             <field name="email_id" string="Email"/>
                             <field name="doctor_id" string="Doctor" options="{'no_create': True}"/>
-                            <field name="doctor_gender" string="Doc Gender" readonly="1"/>
+                            <!-- below - visible if manager ! -->
+                            <field name="doctor_gender" string="Doc Gender" readonly="1"
+                                   groups="jm_hospital.group_hospital_manager" />
                         </group>
                         <hr/>
                         <field name="notes" string="Desc"/>

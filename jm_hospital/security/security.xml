@@ -61,6 +61,7 @@
     <record model="ir.rule" id="patient_record_rule">
         <field name="name">See only His Patient</field>
         <field name="model_id" ref="model_hospital_patient"/>
+        <!-- below a doctor can see only hist patients -->
         <field name="domain_force">[('doctor_id.user_id','=',user.id)]</field>
         <field name="groups" eval="[(4, ref('group_hospital_doctor'))]"/>
     </record>
