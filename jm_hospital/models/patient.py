@@ -60,10 +60,10 @@ class HospitalPatient(models.Model):
     doctor_id = fields.Many2one('hospital.doctor', string="Doctor")
     #email_id = fields.Char(string="Email")
     #user_id = fields.Many2one('res.users', string="PRO")
-    #doctor_gender = fields.Selection([
-    #    ('male', 'Male'),
-    #    ('fe_male', 'Female'),
-    #    ], string="Doctor Gender")
+    doctor_gender = fields.Selection([
+        ('male', 'Male'),
+        ('fe_male', 'Female'),
+        ], string="Doctor Gender")
     patient_name_upper = fields.Char(compute='_compute_upper_name', inverse='_inverse_upper_name')
 
     # Overriding the create method to assign sequence for the record
@@ -115,3 +115,11 @@ class HospitalPatient(models.Model):
         for rec in self:
             if rec.patient_age < 5:
                 raise ValidationError(_('The Age Must be Greater Than 5..!'))
+
+    # How to Write Onchange Functions
+    # https://www.youtube.com/watch?v=qyRhjyp1MeE&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=39
+    @api.onchange('doctor_id')
+    def set_doctor_gender(self):
+        for rec in self:
+            if rec.doctor_id:
+                rec.doctor_gender = rec.doctor_id.gender

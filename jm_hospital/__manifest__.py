@@ -3,7 +3,7 @@
     'version': '14.0.1.0.0',
     'category': 'Extra Tools',
     'summary': 'jmlm/Odoo Development Tutorials For Beginners',
-    'sequence': '2',
+    'sequence': '0',
     'license': 'AGPL-3',
     'author': 'Odoo Mates',
     'maintainer': 'Odoo Mates',

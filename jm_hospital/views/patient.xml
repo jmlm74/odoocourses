@@ -78,6 +78,7 @@
                             <field name="patient_age" string="Age"/>
                             <field name="gender" string="Gender"/>
                             <field name="doctor_id" string="Doctor" options="{'no_create': True}"/>
+                            <field name="doctor_gender" string="Doc Gender" readonly="1"/>
                         </group>
                         <hr/>
                         <field name="notes" string="Desc"/>
