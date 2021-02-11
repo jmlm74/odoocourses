@@ -123,3 +123,11 @@ class HospitalPatient(models.Model):
         for rec in self:
             if rec.doctor_id:
                 rec.doctor_gender = rec.doctor_id.gender
+
+    # https://www.youtube.com/watch?v=-1r3WSwtqxQ
+    def name_get(self):
+        # name get function for the model executes automatically
+        res = []
+        for rec in self:
+            res.append((rec.id, '%s - %s' % (rec.name_seq, rec.patient_name)))
+        return res
