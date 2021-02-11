@@ -131,23 +131,6 @@
         </field>
     </record>
 
-    <menuitem id="hospital_root"
-              name="Hospital"
-              sequence="1"
-              web_icon="jm_hospital,static/description/icon.png"/>
 
-    <menuitem id="hospital_patient_root"
-              name="Patients"
-              parent="hospital_root"
-              sequence="10"/>
-
-    <menuitem id="hospital_patient"
-              name="Patients"
-              parent="hospital_patient_root"
-              sequence="10"
-              action="patient_action"/>
-
-    <menuitem id="create_appointment" name="Create Appointment" parent="hospital_root"
-              action="create_appointment_wizard" sequence="40"/>
 
 </odoo>

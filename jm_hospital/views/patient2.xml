@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- response for action button (top of patient sheet) -->
+    <!--
+    <record id="actionbutton_patient_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="jm_hospital.appointment_tree" />
+        <field name="domain">[('patient_id','=',active_id)]</field>
+        <field name="binding_model_id" ref="jm_hospital.hospital_appointment" />
+    </record>
+    -->
+    <act_window id="actionbutton_patient_appointment"
+            name="Appointments"
+            res_model="hospital.appointment"
+            binding_model="hospital.patient"
+            view_mode="tree,form"
+            target="new"
+            binding_views="list,form"
+            domain="[('patient_id','=',active_id)]"
+    />
+
+</odoo>

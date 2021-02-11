@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- application menu -->
+    <menuitem id="hospital_root"
+              name="Hospital"
+              sequence="1"
+              web_icon="jm_hospital,static/description/icon.png"/>
+
+    <menuitem id="hospital_patient_root"
+              name="Patients"
+              parent="hospital_root"
+              sequence="10"/>
+
+    <menuitem id="hospital_patient"
+              name="Patients"
+              parent="hospital_patient_root"
+              sequence="10"
+              action="patient_action"/>
+
+    <menuitem id="create_appointment" name="Create Appointment" parent="hospital_root"
+              action="create_appointment_wizard" sequence="40"/>
+
+      <!-- menu doctor -->
+    <menuitem id="hospital_doctor" name="Doctor" parent="hospital_root" action="action_doctor" sequence="20"/>
+
+    <!-- appointments menu -->
+    <menuitem id="hospital_appointment" name="Appointments" parent="hospital_root"
+              action="action_appointment" sequence="30"/>
+
+</odoo>
