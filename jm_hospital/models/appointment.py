@@ -16,6 +16,15 @@ class HospitalAppointment(models.Model):
         result = super(HospitalAppointment, self).create(vals)
         return result
 
+    # How to Override the Write Method in Odoo  ATTENTION : Write is NOT create
+    # https://www.youtube.com/watch?v=v8sXFUi1SH4&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=50
+    def write(self, vals):
+        # overriding the write method of appointment model
+        res = super(HospitalAppointment, self).write(vals)
+        print("Test write function : ", vals)
+        # do as per the need
+        return res
+
     def _get_default_note(self):
         return "Default Value"
 
