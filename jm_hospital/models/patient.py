@@ -131,3 +131,12 @@ class HospitalPatient(models.Model):
         for rec in self:
             res.append((rec.id, '%s - %s' % (rec.name_seq, rec.patient_name)))
         return res
+
+    # Sending Email in Button Click
+    # https://www.youtube.com/watch?v=CZVRmtv6re0&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=44
+    def action_send_card(self):
+        # sending the patient report to patient via email
+        template_id = self.env.ref('jm_hospital.patient_card_email_template').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)
+
