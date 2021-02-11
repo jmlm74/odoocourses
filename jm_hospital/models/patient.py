@@ -82,6 +82,12 @@ class HospitalPatient(models.Model):
         for rec in self:
             rec.patient_name_upper = rec.patient_name.upper() if rec.patient_name else False
 
+    # Making compute field editable using inverse function
+    # https://www.youtube.com/watch?v=NEr6hUTrn84&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=47
+    def _inverse_upper_name(self):
+        for rec in self:
+            rec.patient_name = rec.patient_name_upper.lower() if rec.patient_name_upper else False
+
     # Action For Smart Button
     # https://www.youtube.com/watch?v=I93Lr-bprIc&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=19
     def open_patient_appointments(self):
