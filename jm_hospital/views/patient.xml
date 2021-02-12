@@ -75,7 +75,7 @@
                     <group>
                         <group>
                             <field name="patient_name"/>
-                            <field name="patient_name_upper"/>
+                            <field name="patient_name_upper" groups="base.group_no_one"/>
                         </group>
                         <group>
                             <field name="patient_age" string="Age"/>
