@@ -28,7 +28,8 @@
         <field name="name">hospital.patient.kanban</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban  default_group_by="doctor_id" create="false" quick_create="false" group_create="false"
+                                                  group_delete="false" group_edit="false" archivable="false">
                 <field name="patient_name"/>
                 <field name="image"/>
                 <field name="doctor_id"/>
