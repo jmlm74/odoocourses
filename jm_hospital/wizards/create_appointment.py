@@ -34,3 +34,7 @@ class CreateAppointment(models.TransientModel):
         for rec in appointments:
             print("Appointment Name", rec.name)
         return
+
+    def delete_patient(self):
+        for rec in self:
+            rec.patient_id.unlink()
