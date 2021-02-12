@@ -51,22 +51,23 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <!--<table class="table table-condensed" style="border: 3px solid black !important;">-->
-                                        <!--<t t-foreach="appointment_list" t-as="app">-->
-                                            <!--<tr>-->
-                                                <!--<td>-->
-                                                    <!--<t t-esc="app['name']"/>-->
-                                                <!--</td>-->
-                                                <!--<td>-->
-                                                    <!--<t t-esc="app['notes']"/>-->
-                                                <!--</td>-->
-                                                <!--<td>-->
-                                                    <!--<t t-esc="app['appointment_date']"/>-->
-                                                <!--</td>-->
-                                            <!--</tr>-->
+                                    <!-- Add python function to report >> get data from other models-->
+                                    <table class="table table-condensed" style="border: 3px solid black !important;">-->
+                                        <t t-foreach="appointment_list" t-as="app">
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="app['name']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="app['notes']"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="app['appointment_date']"/>
+                                                    </td>
+                                                </tr>
 
-                                        <!--</t>-->
-                                    <!--</table>-->
+                                        </t>
+                                    </table>
                                 </div>
                             </center>
                             <!--adding the barcode to the report-->
