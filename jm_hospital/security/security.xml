@@ -20,7 +20,7 @@
         <field name="implied_ids" eval="[(4, ref('group_hospital_doctor'))]"/>
     </record>
 
-<!--
+    <!-- new groups for lan access control -->
     <record id="group_hospital_lab" model="res.groups">
         <field name="name">Lab Assistant User</field>
         <field name="category_id" ref="module_category_hospital"/>
@@ -31,10 +31,10 @@
         <field name="category_id" ref="module_category_hospital"/>
         <field name="implied_ids" eval="[(4, ref('group_hospital_lab'))]"/>
     </record>
--->
-    <!--Record Rules-->
+    <!-- end for the lab access control -->
+
+    <!--Record Rules >> lab users can only see their labs but manager can see all -->
     <!--  https://www.youtube.com/watch?v=p8gj1dEfYUM&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=33  -->
-<!--
     <record model="ir.rule" id="see_his_own_lab">
         <field name="name">See His Lab Only</field>
         <field name="model_id" ref="model_hospital_lab"/>
@@ -57,7 +57,6 @@
         <field name="perm_read" eval="1"/>
     </record>
 
--->
     <record model="ir.rule" id="patient_record_rule">
         <field name="name">See only His Patient</field>
         <field name="model_id" ref="model_hospital_patient"/>

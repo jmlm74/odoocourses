@@ -23,6 +23,7 @@
         'views/doctor.xml',
         'reports/report.xml',
         'reports/patient_card.xml',
+        'views/lab.xml',
         'views/patient.xml',
         'views/patient2.xml',
         'views/menu.xml',

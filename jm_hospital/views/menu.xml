@@ -21,11 +21,14 @@
     <menuitem id="create_appointment" name="Create Appointment" parent="hospital_root"
               action="create_appointment_wizard" sequence="40"/>
 
-      <!-- menu doctor -->
+      <!-- doctor menu -->
     <menuitem id="hospital_doctor" name="Doctor" parent="hospital_root" action="action_doctor" sequence="20"/>
 
     <!-- appointments menu -->
     <menuitem id="hospital_appointment" name="Appointments" parent="hospital_root"
               action="action_appointment" sequence="30"/>
 
+    <!-- lab menu -->
+    <menuitem id="hospital_lab" name="Lab" parent="hospital_root"
+          action="action_lab" sequence="40"/>
 </odoo>
