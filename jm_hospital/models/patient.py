@@ -146,3 +146,9 @@ class HospitalPatient(models.Model):
         template = self.env['mail.template'].browse(template_id)
         template.send_mail(self.id, force_send=True)
 
+    # Function which is executed using the Cron Job/ Scheduled Action
+    # https://www.youtube.com/watch?v=_P_AVSNr6uU&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=52
+    @api.model
+    def test_cron_job(self):
+        print("Abcd") # print will get printed in the log of pycharm
+        #code accordingly to execute the cron
