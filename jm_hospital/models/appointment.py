@@ -41,6 +41,9 @@ class HospitalAppointment(models.Model):
                              ], string='Status', readonly=True, default='draft')
     doctor_note = fields.Text(string="Note", track_visibility='onchange')
     pharmacy_note = fields.Text(string="Note", track_visibility='always')
+    partner_id = fields.Many2one('res.partner', string="Customer")
+    order_id = fields.Many2one('sale.order', string="Sale Order")
+
     # How to Create One2Many Field
     # https://www.youtube.com/watch?v=_O_tNBdg3HQ&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=34
     appointment_lines = fields.One2many('hospital.appointment.lines', 'appointment_id', string='Appointment Lines')
@@ -73,6 +76,14 @@ class HospitalAppointment(models.Model):
         for rec in self:
             print('rec', rec)
             rec.appointment_lines = [(5, 0, 0)]
+
+    # Give Domain For A field dynamically in Onchange
+    # How To Give Domain For A Field Based On Another Field
+    # https://www.youtube.com/watch?v=IpXXYCsK2ow&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=65
+    @api.onchange('partner_id')
+    def onchange_partner_id(self):
+        for rec in self:
+            return {'domain': {'order_id': [('partner_id', '=', rec.partner_id.id)]}}
 
 
 class HospitalAppointmentLines(models.Model):

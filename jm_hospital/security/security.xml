@@ -13,7 +13,6 @@
         <field name="name">Doctor</field>
         <field name="category_id" ref="module_category_hospital"/>
     </record>
-
     <record id="group_hospital_manager" model="res.groups">
         <field name="name">Manager</field>
         <field name="category_id" ref="module_category_hospital"/>
