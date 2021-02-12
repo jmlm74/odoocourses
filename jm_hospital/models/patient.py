@@ -38,7 +38,7 @@ class HospitalPatient(models.Model):
     _rec_name = 'patient_name'
     # rec.xml_id = res.get(rec.id)
 
-    #name = fields.Char(string="Contact Number")
+    # name = fields.Char(string="Contact Number")
     name_seq = fields.Char(string='Patient ID', required=True, copy=False, readonly=True,
                            index=True, default=lambda self: _('New'))
     gender = fields.Selection([
