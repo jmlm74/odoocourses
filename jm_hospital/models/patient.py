@@ -152,3 +152,8 @@ class HospitalPatient(models.Model):
     def test_cron_job(self):
         print("Abcd") # print will get printed in the log of pycharm
         #code accordingly to execute the cron
+
+    # Print PDF Report From Button Click in Form
+    # https://www.youtube.com/watch?v=Dc8GDj7ygsI&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=67
+    def print_report(self):
+        return self.env.ref('jm_hospital.report_patient_card').report_action(self)
