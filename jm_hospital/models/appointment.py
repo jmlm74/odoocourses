@@ -67,6 +67,13 @@ class HospitalAppointment(models.Model):
         for rec in self:
             rec.doctor_id.user_id.notify_warning(message='Appointment is Confirmed')
 
+    # Deleting One2Many Lines
+    # just put tuple (5,0,0) in the id --> same for Many2many
+    def delete_lines(self):
+        for rec in self:
+            print('rec', rec)
+            rec.appointment_lines = [(5, 0, 0)]
+
 
 class HospitalAppointmentLines(models.Model):
     _name = 'hospital.appointment.lines'

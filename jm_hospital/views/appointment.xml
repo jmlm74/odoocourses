@@ -27,6 +27,8 @@
                     <!-- <button name="action_notify" type="object" string="Notify" class="oe_highlight" states="draft"/> -->
                     <button name="action_done" type="object" string="Done" class="oe_highlight"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
+                    <button name="delete_lines" type="object" string="Delete" class="oe_highlight"
+                            confirm="Are you sure you want to delete all the lines ?"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
                 </header>
                 <sheet>
