@@ -85,6 +85,26 @@ class HospitalAppointment(models.Model):
         for rec in self:
             return {'domain': {'order_id': [('partner_id', '=', rec.partner_id.id)]}}
 
+    # executed on create (not update)
+    @api.model
+    def default_get(self, fields):
+        res = super(HospitalAppointment, self).default_get(fields)
+        print('Fields : ', fields)  # a list of fields
+        appointment_lines = []
+        product_rec = self.env['product.product'].search([])
+        print("product : ",product_rec)
+        for pro in product_rec:
+            line = (0, 0, {
+                'product_id': pro.id,
+                'product_qty': 1,
+            })
+            appointment_lines.append(line)
+        res.update({
+            'appointment_lines': appointment_lines,
+            'patient_id': 1,
+            'notes': 'Like and Subscribe our channel To Get Notified'
+        })
+        return res
 
 class HospitalAppointmentLines(models.Model):
     _name = 'hospital.appointment.lines'
