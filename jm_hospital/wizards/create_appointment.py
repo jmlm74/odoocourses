@@ -38,3 +38,31 @@ class CreateAppointment(models.TransientModel):
     def delete_patient(self):
         for rec in self:
             rec.patient_id.unlink()
+
+    def print_report(self):
+        print(self)
+        data = {
+            'model': 'create.appointment',
+            'form': self.read()[0]
+        }
+        print(data)
+        """
+        if data['form']['patient_id']:
+            selected_patient = data['form']['patient_id'][0]
+            appointments = self.env['hospital.appointment'].search([('patient_id', '=', selected_patient)])
+        else:
+            appointments = self.env['hospital.appointment'].search([])
+        appointment_list = []
+        for app in appointments:
+            vals = {
+                'name': app.name,
+                'notes': app.notes,
+                'appointment_date': app.appointment_date
+            }
+            appointment_list.append(vals)
+        print("appointments", appointments)
+        data['appointments'] = appointment_list
+        print("Data", data)
+        """
+        return self.env.ref('jm_hospital.report_appointment').with_context(landscape=True).report_action(self,
+                                                                                                                data=data)

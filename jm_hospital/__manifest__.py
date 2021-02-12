@@ -24,6 +24,7 @@
         'views/template.xml',
         'reports/report.xml',
         'reports/patient_card.xml',
+        'reports/appointment.xml',
         'reports/sale_report_inherit.xml',
         'views/lab.xml',
         'views/patient.xml',
