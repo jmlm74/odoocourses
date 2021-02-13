@@ -117,6 +117,8 @@
                         </group>
                         <group>
                             <field name="patient_age" string="Age"/>
+                            <field name="patient_age2" widget="float_toggle"
+                                   options='{"range": [0, 1, 2, 3, 4, 5, 6, 7,  8, 9, 10, 11]}'/>
                             <field name="gender" string="Gender"/>
                             <field name="email_id" string="Email"/>
                             <field name="doctor_id" string="Doctor" options="{'no_create': True}"/>

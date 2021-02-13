@@ -59,7 +59,7 @@ class HospitalPatient(models.Model):
     patient_name = fields.Char(string='Name', required=True, track_visibility="always")
     # add  track visibility (already done in my copy/paste !
     patient_age = fields.Integer('Age', track_visibility="always", group_operator=False)
-    #patient_age2 = fields.Float(string="Age2")
+    patient_age2 = fields.Float(string="Age2", required=False)
     notes = fields.Text(string="Registration Note")
     image = fields.Binary(string="Image", attachment=True)
     appointment_count = fields.Integer(string='Appointment', compute='get_appointment_count')
