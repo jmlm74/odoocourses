@@ -18,9 +18,10 @@
         </record>
         -->
     </data>
-<!--
-    <delete id="mrp.mrp_workcenter_rule" model="ir.rule"/>
 
+    <!-- felete a record in settings >> Record Rule -->
+    <delete id="mrp.mrp_workcenter_rule" model="ir.rule"/>
+<!--
     <delete id="calendar.calendar_template_meeting_invitation" model="mail.template"/>
 -->
 
