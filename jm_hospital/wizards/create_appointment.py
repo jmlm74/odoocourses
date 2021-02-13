@@ -64,5 +64,5 @@ class CreateAppointment(models.TransientModel):
         data['appointments'] = appointment_list
         print("Data", data)
         """
-        return self.env.ref('jm_hospital.report_appointment').with_context(landscape=True).report_action(self,
+        return self.env.ref('jm_hospital.report_appointment').with_context(landscape=False).report_action(self,
                                                                                                                 data=data)
