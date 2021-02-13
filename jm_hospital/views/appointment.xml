@@ -7,11 +7,13 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree string="Appointments">
+            <tree decoration-info="state == 'draft'" decoration-muted="state == 'cancel'"
+                  decoration-success="state == 'done'" decoration-danger="state == 'confirm'">
                 <field name="name"/>
                 <field name="patient_id"/>
                 <field name="patient_age" avg="Average Of Ages"/>
                 <field name="appointment_date"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
