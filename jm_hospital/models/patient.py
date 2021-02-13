@@ -4,6 +4,13 @@ from odoo.exceptions import ValidationError
 
 # inheriting standard classes --> change the methods without changing source code
 #                             --> Add field in view without changing source
+#                             --> can inherit more than one time
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    company_type = fields.Selection(selection_add=[('om', 'Odoo Mates'), ('odoodev', 'Odoo Dev')])
+
+
 class ResPartners(models.Model):
     _inherit = 'res.partner'
 
