@@ -44,6 +44,7 @@ class HospitalAppointment(models.Model):
     partner_id = fields.Many2one('res.partner', string="Customer")
     order_id = fields.Many2one('sale.order', string="Sale Order")
     amount = fields.Float(string="Total Amount")
+    doctor_id = fields.Many2one('hospital.doctor', string='Doctor')
 
     # How to Create One2Many Field
     # https://www.youtube.com/watch?v=_O_tNBdg3HQ&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=34

@@ -52,6 +52,8 @@
                             <field name="appointment_date" options='{"datepicker": {"daysOfWeekDisabled": [0, 6]}}'/>
                             <field name="partner_id"/>
                             <field name="order_id"/>
+                            <hr />
+                            <field name="doctor_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
                         </group>
                     </group>
                     <group>
@@ -140,13 +142,25 @@
         </field>
     </record>
 
+    <!-- pivot view -->
+    <record id="appointment_pivot" model="ir.ui.view">
+        <field name="name">hospital.appointment.pivot</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <pivot string="Appointment">
+                <field name="doctor_id" type="row"/>
+                <field name="appointment_date" type="col" interval="day"/>
+            </pivot>
+        </field>
+    </record>
+
     <!--action of the appointment menu-->
     <record id="action_appointment" model="ir.actions.act_window">
         <field name="name">Appointments</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.appointment</field>
         <!-- <field name="view_mode">calendar,tree,form,pivot,graph,timeline</field> -->
-        <field name="view_mode">calendar,tree,form,graph</field>
+        <field name="view_mode">calendar,tree,form,graph,pivot</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
