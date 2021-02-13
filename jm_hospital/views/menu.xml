@@ -31,4 +31,12 @@
     <!-- lab menu -->
     <menuitem id="hospital_lab" name="Lab" parent="hospital_root"
           action="action_lab" sequence="40"/>
+
+    <!-- dashboard menu -->
+     <menuitem
+        name="Dashboard"
+        parent="jm_hospital.hospital_root"
+        action="hospital_dashboard"
+        sequence="1"
+        id="menu_dashboard"/>
 </odoo>

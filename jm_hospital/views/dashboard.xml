@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="act_patient_appointments" model="ir.actions.act_window">
+        <field name="name">Patient Appointments</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="jm_hospital.appointment_graph"/>
+    </record>
+
+    <record id="act_book_appointment" model="ir.actions.act_window">
+        <field name="name">Book Appointments</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">calendar</field>
+        <field name="view_id" ref="jm_hospital.appointment_calendar"/>
+    </record>
+
+    <record id="act_patient_list" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="dashboard_form_view" model="ir.ui.view">
+        <field name="name">Dashboard Form</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <!-- different styles : 1 - 1-1 - 1-1-1 - 1-2 - 2-1 >> the columns & the size !-->
+                <board style="1-2">
+                    <!-- the names are detailed upper >> like frames -->
+                    <column>
+                        <!-- col 1 -->
+                        <!-- string = the frame title  -->
+                        <action
+                            string="Patient Appointments"
+                            name="%(jm_hospital.act_patient_appointments)d"/>
+                        <action
+                            string="Patient Records"
+                            name="%(act_patient_list)d"/>
+                    </column>
+                    <column>
+                        <!-- col 2 -->
+                        <action
+                            string="Book Appointment"
+                            name="%(act_book_appointment)d"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+    <record id="hospital_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="dashboard_form_view"/>
+    </record>
+
+        <!-- ********************************************************************** -->
+        <!-- ATTENTION : Neeed to modify : addons/board/static/src/js.board_view.js -->
+        <!--             to avoid error message when moving frame                   -->
+        <!-- change : custom_id: this.customViewID,                                 -->
+        <!-- by     : custom_id: this.customViewID != null? this.customViewID: '',  -->
+        <!-- ********************************************************************** -->
+
+
+</odoo>

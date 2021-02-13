@@ -9,7 +9,7 @@
     'maintainer': 'Odoo Mates',
     'website': 'http://odoomates.tech',
     'live_test_url': 'https://www.youtube.com/watch?v=BDepk0LhVuI&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=1',
-    'depends': ['base', 'mail', 'sale', 'web', 'website' ],
+    'depends': ['base', 'mail', 'sale', 'web', 'website', 'board' ],
     'demo': [],
     'data': [
         'security/ir.model.access.csv',
@@ -28,6 +28,7 @@
         'reports/appointment.xml',
         'reports/sale_report_inherit.xml',
         'views/lab.xml',
+        'views/dashboard.xml',
         'views/patient.xml',
         'views/patient2.xml',
         'views/menu.xml',
