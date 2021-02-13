@@ -20,7 +20,16 @@ class CreateAppointment(models.TransientModel):
         # https://www.youtube.com/watch?v=J3MvgwHnR0A&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=48
         self.patient_id.message_post(body="Appointment created successfully ", subject="Appointment Creation")
         # creating appointments from the code
-        self.env['hospital.appointment'].create(vals)
+        new_appointment = self.env['hospital.appointment'].create(vals)
+        context = dict(self.env.context)
+        context['form_view_initial_mode'] = 'edit'
+        return {'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_model': 'hospital.appointment',
+                'res_id': new_appointment.id,
+                'context': context
+                }
 
     # Fetching/ Taking Data From Database Tables
     # https://www.youtube.com/watch?v=hUPSvL8GTQE&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=49
