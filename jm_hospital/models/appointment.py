@@ -43,6 +43,7 @@ class HospitalAppointment(models.Model):
     pharmacy_note = fields.Text(string="Note", track_visibility='always')
     partner_id = fields.Many2one('res.partner', string="Customer")
     order_id = fields.Many2one('sale.order', string="Sale Order")
+    amount = fields.Float(string="Total Amount")
 
     # How to Create One2Many Field
     # https://www.youtube.com/watch?v=_O_tNBdg3HQ&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=34
