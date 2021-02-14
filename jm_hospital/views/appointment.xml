@@ -125,7 +125,7 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <calendar string="Appointment Calendar" date_start="appointment_date" color="patient_id" mode="month"
-                      quick_add="True">
+                      quick_add="False">
                 <field name="name"/>
                 <field name="patient_id"/>
             </calendar>
