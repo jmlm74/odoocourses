@@ -114,4 +114,5 @@ class HospitalAppointmentLines(models.Model):
 
     product_id = fields.Many2one('product.product', string='Medicine')
     product_qty = fields.Integer(string="Quantity")
+    sequence = fields.Integer(string="Sequence")
     appointment_id = fields.Many2one('hospital.appointment', string='Appointment ID')
