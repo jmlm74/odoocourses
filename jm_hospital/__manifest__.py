@@ -29,6 +29,7 @@
         'reports/sale_report_inherit.xml',
         'views/lab.xml',
         'views/dashboard.xml',
+        'views/server_action.xml',
         'views/patient.xml',
         'views/patient2.xml',
         'views/menu.xml',

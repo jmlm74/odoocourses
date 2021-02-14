@@ -164,3 +164,16 @@ class HospitalPatient(models.Model):
     # https://www.youtube.com/watch?v=Dc8GDj7ygsI&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=67
     def print_report(self):
         return self.env.ref('jm_hospital.report_patient_card').report_action(self)
+
+    # Server action
+    def action_patients(self):
+        print("Odoo Mates..............")
+        return {
+            'name': _('Patients Server Action'),
+            'domain': [],
+            'view_type': 'form',
+            'res_model': 'hospital.patient',
+            'view_id': False,
+            'view_mode': 'tree,form',
+            'type': 'ir.actions.act_window',
+        }

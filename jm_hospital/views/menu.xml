@@ -39,4 +39,10 @@
         action="hospital_dashboard"
         sequence="1"
         id="menu_dashboard"/>
+
+    !-- Server action -->
+    <menuitem id="hospital_patient_server_action_menu"
+                  name="Server Action"
+                  parent="hospital_root"
+                  action="hospital_patient_action"/>
 </odoo>
