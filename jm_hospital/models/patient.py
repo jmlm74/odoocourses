@@ -27,13 +27,13 @@ class ResPartners(models.Model):
 # https://www.youtube.com/watch?v=z1Tx7EGkPy0&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=9
 class SaleOrderInherit(models.Model):
     _inherit = 'sale.order'
-    """
-    @api.multi
+
+    # inherit function but no override just insert something --> super
     def action_confirm(self):
         print("odoo mates")
         res = super(SaleOrderInherit, self).action_confirm()
         return res
-    """
+
     patient_name = fields.Char(string='Patient Name')
     is_patient = fields.Boolean(string='Is Patient')
 
