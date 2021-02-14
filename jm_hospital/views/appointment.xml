@@ -8,7 +8,8 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <tree decoration-info="state == 'draft'" decoration-muted="state == 'cancel'"
-                  decoration-success="state == 'done'" decoration-danger="state == 'confirm'">
+                  decoration-success="state == 'done'" decoration-danger="state == 'confirm'"
+                  banner_route="/jm_hospital/appointments">
                 <field name="name"/>
                 <field name="patient_id"/>
                 <field name="patient_age" avg="Average Of Ages"/>
@@ -23,7 +24,7 @@
         <field name="name">hospital.appointment.form</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <form string="Appointments">
+            <form string="Appointments" banner_route="/jm_hospital/appointments">
                 <header>
                     <button name="action_confirm" type="object" string="Confirm" class="oe_highlight" states="draft"/>
                     <!-- <button name="action_notify" type="object" string="Notify" class="oe_highlight" states="draft"/> -->
